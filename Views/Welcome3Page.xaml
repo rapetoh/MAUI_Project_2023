@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:vm="clr-namespace:MAUI_Project_2023.ViewModels"
+			 x:Class="MAUI_Project_2023.Views.Welcome3Page"
+			 x:DataType="vm:Welcome3ViewModel"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+          ColumnDefinitions=".2*,.2*,.2*"
+          RowSpacing="15">
+
+        <Image Grid.ColumnSpan="5" Source="chair.png"/>
+
+        <Image Grid.Column="1" Grid.Row="2" Source="scientmeet.png"/>
+
+        <Label Text=" Inscrivez-vous dès maintenant
+ pour accéder à notre application de gestion 
+de conférences scientifiques au Togo"
+               TextColor="Black"
+               Grid.Row="3"
+               Grid.ColumnSpan="3"
+               HorizontalTextAlignment="Center"
+               FontFamily="poppSemiBold"
+               FontSize="12">
+            <Label.Margin>
+                <Thickness Left="40" Right="40" />
+            </Label.Margin>
+        </Label>
+
+
+        <Button Grid.Row="4"
+                Grid.Column="1"
+                WidthRequest="250"
+                HeightRequest="50"
+                BorderWidth="0"
+                CornerRadius="40"
+                Text="S'inscrire"
+                FontFamily="poppSemiBold"
+                Clicked="Sinscrire">
+            <Button.Margin>
+                <Thickness Top="20"/>
+            </Button.Margin>
+        </Button>
+
+        <Button Grid.Column="1" Grid.Row="5" WidthRequest="10" HeightRequest="10" BackgroundColor="#E6E7F8" >
+            <Button.Margin>
+                <Thickness Left="-20"  Top="60"/>
+            </Button.Margin>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="5" WidthRequest="10" HeightRequest="10" BackgroundColor="#E6E7F8">
+            <Button.Margin>
+                <Thickness Left="5" Top="60"/>
+            </Button.Margin>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="5" WidthRequest="20" HeightRequest="10" BackgroundColor="#9DA5EE">
+            <Button.Margin>
+                <Thickness Left="62" Right="20" Top="60"/>
+            </Button.Margin>
+        </Button>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:vm="clr-namespace:MAUI_Project_2023.ViewModels"
+			 x:Class="MAUI_Project_2023.Views.SignUpPage"
+			 x:DataType="vm:SignUpViewModel">
+
+    <VerticalStackLayout
+        Spacing="5"
+        Padding="30,0"
+        VerticalOptions="Start"
+        >
+        <Rectangle HeightRequest="30" />
+
+        <Image Source="scientmeet.png" WidthRequest="80" />
+
+        <Label 
+            Text="S'inscrire"
+            FontSize="24"
+            TextColor="#3441B4"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            FontFamily="poppSemiBold"/>
+        <Rectangle 
+            Background="transparent"
+                  />
+        <Label
+            Text="Email :"
+            FontSize="10"
+            FontFamily="poppSemiBold"
+            Margin="0,0,0,-10"
+            ZIndex="1"
+            WidthRequest="39"
+            TranslationY="7"
+            TranslationX="-100"
+            BackgroundColor="White"
+        />
+
+        <Frame BackgroundColor="Transparent"
+               HeightRequest="50"
+               Margin="0"
+               Padding="20,0,20,0"
+               CornerRadius="40"
+               >
+            <Entry 
+            x:Name="email"
+            ClearButtonVisibility="WhileEditing"  
+            TextChanged="OnEntryEmailChanged"
+            Completed="OnEntryEmailCompleted"
+            Placeholder="Entrez votre email"
+            FontFamily="poppSemiBold"
+            HeightRequest="70"/>
+        </Frame>
+
+        <Label
+            Text="Username :"
+             FontSize="10"
+            FontFamily="poppSemiBold"
+            Margin="0,0,0,-10"
+            ZIndex="1"
+            WidthRequest="68"
+            TranslationY="7"
+            TranslationX="-92"
+            BackgroundColor="White"
+        />
+
+        <Frame BackgroundColor="Transparent"
+               HeightRequest="50"
+               Margin="0"
+               Padding="20,0,20,0"
+               CornerRadius="40"
+               >
+            <Entry 
+            x:Name="username"
+            ClearButtonVisibility="WhileEditing"
+            TextChanged="OnEntryUsernameChanged"
+            Completed="OnEntryUsernameCompleted"
+            Placeholder="Entrez un nom d'utilisateur"
+            FontFamily="poppSemiBold"
+                HeightRequest="70"/>
+        </Frame>
+        <Label 
+            Text="Password : "
+             FontSize="10"
+            FontFamily="poppSemiBold"
+            Margin="0,0,0,-10"
+            ZIndex="1"
+            WidthRequest="69"
+            TranslationY="7"
+            TranslationX="-91"
+            BackgroundColor="White"/>
+        <Frame BackgroundColor="Transparent"
+               HeightRequest="50"
+               Margin="0"
+               Padding="20,0,20,0"
+               CornerRadius="40"
+               >
+            <Entry 
+            x:Name="password"
+            IsPassword="True" 
+            ClearButtonVisibility="WhileEditing"
+            TextChanged="OnEntryPasswordChanged"
+            Completed="OnEntryPasswordCompleted"
+            Placeholder="Entrez le mot de passe"
+            FontFamily="poppSemiBold"
+                HeightRequest="70"
+            />
+        </Frame>
+
+        <Label 
+            Text="Password confirmation: "
+             FontSize="10"
+            FontFamily="poppSemiBold"
+            Margin="70,0,0,-10"
+            ZIndex="1"
+            WidthRequest="142"
+            TranslationY="7"
+            TranslationX="-91"
+            BackgroundColor="White"/>
+        <Frame BackgroundColor="Transparent"
+               HeightRequest="50"
+               Margin="0"
+               Padding="20,0,20,0"
+               CornerRadius="40"
+               >
+            <Entry 
+            x:Name="passwordconf"
+            IsPassword="True" 
+            ClearButtonVisibility="WhileEditing"
+            TextChanged="OnEntryPasswordChanged"
+            Completed="OnEntryPasswordCompleted"
+            Placeholder="Confirmez votre mot de passe"
+            FontFamily="poppSemiBold"
+                HeightRequest="70"
+            />
+        </Frame>
+
+
+        <Label 
+            Text="Vous êtes : "
+             FontSize="10"
+            FontFamily="poppSemiBold"
+            Margin="0,0,0,-10"
+            ZIndex="1"
+            WidthRequest="69"
+            TranslationY="7"
+            TranslationX="-91"
+            BackgroundColor="White"/>
+        <Frame BackgroundColor="Transparent"
+               HeightRequest="50"
+               Margin="0"
+               Padding="20,0,20,0"
+               CornerRadius="40"
+               >
+            <Picker x:Name="etat" Title="Sélectionnez une option" SelectedIndexChanged="OnPickerSelectedIndexChanged" HeightRequest="70">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Auteur d'articles(Partcipant)</x:String>
+                        <x:String>Simple particiant(Partcipant)</x:String>
+                        <x:String>Co-Président(Partcipant)</x:String>
+                        <x:String>Relecteurs(Partcipant)</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+        </Frame>
+
+        <Button 
+            Text="Créer un compte"
+            BackgroundColor="#4552CB"
+            FontSize="12"
+            FontFamily="poppSemiBold"
+            CornerRadius="30"
+            Margin="0,35,0,-20"
+            Clicked="inscriptionDB"
+            />
+        <Rectangle Background="transparent"
+                   HeightRequest="20"/>
+        <Grid
+            RowDefinitions="Auto,Auto">
+
+
+            <Label 
+                Text="Vous avez déja un compte?"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Grid.Column="1" />
+            <Button
+            BackgroundColor="Transparent"
+            Text="Connectez vous" 
+            VerticalOptions="Center"
+                HorizontalOptions="Center"
+            TextColor="#4552CB"
+            Clicked="OnConnectButtonClicked"
+            Grid.Row="1" />
+        </Grid>
+
+
+
+    </VerticalStackLayout>
+
+
+
+</ContentPage>

@@ -1,4 +1,5 @@
 ﻿using MAUI_Project_2023.Models;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,52 @@ namespace MAUI_Project_2023.Services
     {
         public async Task<IEnumerable<Comment>> GetItems()
         {
-            await Task.Delay(1000); // Artifical delay to give the impression of work
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+
+                    string TodoItemsUrl = "https://6849-196-170-95-47.ngrok-free.app/api/comments";
+                    HttpResponseMessage response = await client.GetAsync(TodoItemsUrl);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // La requête a réussi, procédez au traitement de la réponse
+                        string jsonContent = await response.Content.ReadAsStringAsync();
+
+                        JObject jsonObject = JObject.Parse(jsonContent);
+                        JArray jsonArray = (JArray)jsonObject["hydra:member"];
+                        bool flagg = false;
+
+                        foreach (JObject item in jsonArray)
+                        {
+                           
+                            int iddd = (int)item["id"];
+                            string word = (string)item["wording"];
+                            DateTime sbDate = (DateTime)item["date"];
+                           
+
+                            ListOfComment.Add(new Comment()
+                            {
+                                Id = iddd,
+                                Libelle=word,
+                                Date=sbDate,
+                            });
+                        }
+                    }
+                    else
+                    {
+                        // La requête a échoué, traitez l'erreur en conséquence
+                    }
+
+                    // Vérifier si la requête a réussi
+
+                }
+                catch (Exception ex)
+                {
+                    // Gérer les exceptions liées à la requête
+                }
+            }
+            await Task.Delay(1000);  // Artifical delay to give the impression of work
             return ListOfComment;
         }
         List<Comment> ListOfComment = new List<Comment>

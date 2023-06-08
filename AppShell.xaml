@@ -4,14 +4,86 @@
 	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:views="clr-namespace:MAUI_Project_2023.Views"
-	xmlns:local="clr-namespace:MAUI_Project_2023">
+	xmlns:local="clr-namespace:MAUI_Project_2023"
+	BackgroundColor="Transparent"
+    ForegroundColor="#4552CB"
+    TitleColor="#4552CB"
+    DisabledColor="#B4FFFFFF"
+    UnselectedColor="#95FFFFFF"
+    Shell.FlyoutBehavior="Flyout"
+    FlyoutBackgroundImage="loader.png"
+ FlyoutBackgroundImageAspect="AspectFill">
 
-	<ShellContent
+		<Shell.FlyoutHeader HeightRequest="200">
+		<Grid Padding="20" 
+				IsClippedToBounds="True">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="*"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<Frame
+				BackgroundColor="Transparent"
+				BorderColor="Transparent"
+				Grid.Column="0"
+				Grid.Row="0"
+				HeightRequest="50">
+
+			</Frame>
+			<Frame Grid.Column="0" 
+					Grid.Row="2"
+					WidthRequest="100" 
+					HeightRequest="100" 
+					CornerRadius="50"
+					Padding="0" 
+					BackgroundColor="White">
+
+				<Image Source="pp.jpg" 
+						Aspect="AspectFill" />
+			</Frame>
+			<StackLayout 
+				VerticalOptions="Center"
+				Grid.Column="1" 
+				Grid.Row="2"
+				Margin="30,0,0,0">
+				<Label 
+					x:Name="usrnm"
+                    Text=""
+					TextColor="White"
+                    FontFamily="poppSemiBold"
+					FontSize="24" />
+				<Label 
+                    x:Name="maill"
+					Text="" 
+					TextColor="White" 
+                    FontFamily="poppSemiBold"
+					FontSize="12" />
+			</StackLayout>
+			<Frame
+				BorderColor="Transparent"
+				BackgroundColor="Transparent"
+				Grid.Column="0"
+				Grid.Row="1"
+				HeightRequest="50">
+
+			</Frame>
+
+		</Grid>
+	</Shell.FlyoutHeader>
+
+    <ShellContent
 		Shell.NavBarIsVisible="true"
+        x:Name="welcm1"
 		Title="Welcome1"
 		Icon="iconblank.png"
 		ContentTemplate="{DataTemplate views:Welcome1Page}"
-		Route="Welcome1Page" />
+		Route="Welcome1Page">
+    </ShellContent>
 
 	<ShellContent
 		Shell.NavBarIsVisible="true"
@@ -20,7 +92,14 @@
 		ContentTemplate="{DataTemplate views:HomePage}"
 		Route="HomePage" />
 
-	<ShellContent
+    <ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Profil"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:Profile}"
+		Route="Profile" />
+
+    <ShellContent
 		Shell.NavBarIsVisible="true"
 		Title="Blank4"
 		Icon="iconblank.png"
@@ -40,28 +119,28 @@
 		Route="ListDetailPage" />
 	<ShellContent
 		Shell.NavBarIsVisible="true"
-		Title="ListDetail1"
-		Icon="iconlistdetail.png"
-		ContentTemplate="{DataTemplate views:ListDetail1Page}"
-		Route="ListDetail1Page" />
+		Title="Articles"
+		FlyoutIcon="article_icon.png"
+		ContentTemplate="{DataTemplate views:ArticlePage}"
+		Route="ArticlePage" />
 	<ShellContent
 		Shell.NavBarIsVisible="true"
-		Title="ListDetail2"
-		Icon="iconlistdetail.png"
-		ContentTemplate="{DataTemplate views:ListDetail2Page}"
-		Route="ListDetail2Page" />
+		Title="Commentaires"
+		FlyoutIcon="author_icon.png"
+		ContentTemplate="{DataTemplate views:CommentPage}"
+		Route="CommentPage" />
 	<ShellContent
 		Shell.NavBarIsVisible="true"
-		Title="ListDetail3"
-		Icon="iconlistdetail.png"
-		ContentTemplate="{DataTemplate views:ListDetail3Page}"
-		Route="ListDetail3Page" />
+		Title="Conférences"
+		FlyoutIcon="conference_icon.png"
+		ContentTemplate="{DataTemplate views:ConferencePage}"
+		Route="ConferencePage" />
 	<ShellContent
 		Shell.NavBarIsVisible="true"
-		Title="ListDetail4"
-		Icon="iconlistdetail.png"
-		ContentTemplate="{DataTemplate views:ListDetail4Page}"
-		Route="ListDetail4Page" />
+		Title="Notifications"
+		FlyoutIcon="notification_icon.png"
+		ContentTemplate="{DataTemplate views:NotificationPage}"
+		Route="NotificationPage" />
 	<ShellContent
 		Shell.NavBarIsVisible="true"
 		Title="ListDetail5"

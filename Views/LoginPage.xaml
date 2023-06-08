@@ -3,7 +3,8 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:vm="clr-namespace:MAUI_Project_2023.ViewModels"
 			 x:Class="MAUI_Project_2023.Views.LoginPage"
-			 x:DataType="vm:LoginViewModel">
+			 x:DataType="vm:LoginViewModel"
+             Shell.NavBarIsVisible="False">
 
     <VerticalStackLayout
         Spacing="10"
@@ -12,12 +13,12 @@
 
         <Rectangle 
             Background="transparent"
-            HeightRequest="50"
+            HeightRequest="80"
                   />
         <Image Source="scientmeet.png" WidthRequest="80" />
 
         <Label 
-            Text="Se conecter"
+            Text="Se connecter"
             FontSize="24"
             TextColor="#3441B4"
             VerticalOptions="Start"
@@ -28,13 +29,14 @@
                   />
         <Label
             Text="Email :"
-            FontSize="10"
+            FontSize="12"
             FontFamily="poppSemiBold"
             Margin="0,0,0,-15"
             ZIndex="1"
-            WidthRequest="39"
+            WidthRequest="43"
+            TextColor="#4552CB"
             TranslationY="7"
-            TranslationX="-100"
+            TranslationX="-120"
             BackgroundColor="White"
         />
 
@@ -50,19 +52,22 @@
             TextChanged="OnEntryEmailChanged"
             Completed="OnEntryEmailCompleted"
             Placeholder="Entrez votre email"
-            FontFamily="poppSemiBold"/>
+            FontFamily="poppSemiBold"
+            HeightRequest="70"
+/>
 
 
         </Frame>
         <Label 
-            Text="Password : "
-             FontSize="10"
+            Text="Mot de passe : "
+             FontSize="12"
             FontFamily="poppSemiBold"
             Margin="0,0,0,-15"
             ZIndex="1"
-            WidthRequest="69"
-            TranslationY="7"
-            TranslationX="-91"
+            TextColor="#4552CB"
+            WidthRequest="89"
+            TranslationY="9"
+            TranslationX="-98"
             BackgroundColor="White"/>
         <Frame BackgroundColor="Transparent"
                HeightRequest="50"
@@ -78,6 +83,7 @@
             Completed="OnEntryPasswordCompleted"
             Placeholder="Entrez le mot de passe"
             FontFamily="poppSemiBold"
+                HeightRequest="70"
             />
         </Frame>
         <Button 

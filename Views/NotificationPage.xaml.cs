@@ -1,10 +1,10 @@
 ﻿namespace MAUI_Project_2023.Views;
 
-public partial class ListDetail2Page : ContentPage
+public partial class NotificationPage : ContentPage
 {
-	ListDetail2ViewModel ViewModel;
+	NotificationViewModel ViewModel;
 
-	public ListDetail2Page(ListDetail2ViewModel viewModel)
+	public NotificationPage(NotificationViewModel viewModel)
 	{
 		InitializeComponent();
 

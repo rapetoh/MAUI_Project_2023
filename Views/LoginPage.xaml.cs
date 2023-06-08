@@ -67,6 +67,8 @@ public partial class LoginPage : ContentPage
     public string idd = "";
     public async void ConnectionBD(object sender, EventArgs e)
     {
+        LoadingOverlay.IsVisible = true;
+        await Task.Delay(2000);
         String mailconn = email.Text;
         String passconn = password.Text;
 
@@ -79,7 +81,7 @@ public partial class LoginPage : ContentPage
                 //string BaseUrl = DeviceInfo.Platform == DevicePlatform.Android ?
                   //                           "https://10.0.2.2:8000/api/" : "https://localhost:8000/api/";
                 // Envoyer la requête POST à l'URL de votre API ou service
-                string TodoItemsUrl = "https://f141-196-170-95-47.ngrok-free.app/api/users";
+                string TodoItemsUrl = "https://6849-196-170-95-47.ngrok-free.app/api/users";
                 HttpResponseMessage response = await client.GetAsync(TodoItemsUrl);
                 if (response.IsSuccessStatusCode)
                 {
@@ -96,9 +98,25 @@ public partial class LoginPage : ContentPage
                         string pass = (string)item["password"];
                         idd = (string)item["id"];
                         String name = (string)item["firstname"];
+                        String isAuthor = (string)item["isAuthor"];
+                        String isCopresident = (string)item["isCopresident"];
+                        String isProofreader = (string)item["isProofreader"];
+                        String isParticipant = (string)item["isParticipant"];
+
+
 
                         if ((em == mailconn) && (pass == passconn))
                         {
+                            await SecureStorage.SetAsync("IsLoggedIn", "true");
+                            await SecureStorage.SetAsync("Username", name);
+                            await SecureStorage.SetAsync("Email", em);
+                            await SecureStorage.SetAsync("isAuthor", isAuthor);
+                            await SecureStorage.SetAsync("isProofreader", isProofreader);
+                            await SecureStorage.SetAsync("isCopresident", isCopresident);
+                            await SecureStorage.SetAsync("isParticipant", isParticipant);
+
+
+
                             await DisplayAlert("Connection", "Bienvenue, "+ name, "OK");
                             flagg = true;
                             break;

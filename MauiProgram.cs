@@ -68,37 +68,37 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<ListDetailPage>();
 
+		builder.Services.AddTransient<ArticleDataService>();
+		builder.Services.AddTransient<ArticleDetailViewModel>();
+		builder.Services.AddTransient<ArticleDetailPage>();
+
+		builder.Services.AddSingleton<ArticleViewModel>();
+
+		builder.Services.AddSingleton<ArticlePage>();
+
+		builder.Services.AddTransient<CommentDataService>();
+		builder.Services.AddTransient<CommentDetailViewModel>();
+		builder.Services.AddTransient<CommentDetailPage>();
+
+		builder.Services.AddSingleton<CommentViewModel>();
+
+		builder.Services.AddSingleton<CommentPage>();
+
+		builder.Services.AddTransient<ConferenceDataService>();
+		builder.Services.AddTransient<ConferenceDetailViewModel>();
+		builder.Services.AddTransient<ConferenceDetailPage>();
+
+		builder.Services.AddSingleton<ConferenceViewModel>();
+
+		builder.Services.AddSingleton<ConferencePage>();
+
 		builder.Services.AddTransient<SampleDataService>();
-		builder.Services.AddTransient<ListDetail1DetailViewModel>();
-		builder.Services.AddTransient<ListDetail1DetailPage>();
+		builder.Services.AddTransient<NotificationDetailViewModel>();
+		builder.Services.AddTransient<NotificationDetailPage>();
 
-		builder.Services.AddSingleton<ListDetail1ViewModel>();
+		builder.Services.AddSingleton<NotificationViewModel>();
 
-		builder.Services.AddSingleton<ListDetail1Page>();
-
-		builder.Services.AddTransient<SampleDataService>();
-		builder.Services.AddTransient<ListDetail2DetailViewModel>();
-		builder.Services.AddTransient<ListDetail2DetailPage>();
-
-		builder.Services.AddSingleton<ListDetail2ViewModel>();
-
-		builder.Services.AddSingleton<ListDetail2Page>();
-
-		builder.Services.AddTransient<SampleDataService>();
-		builder.Services.AddTransient<ListDetail3DetailViewModel>();
-		builder.Services.AddTransient<ListDetail3DetailPage>();
-
-		builder.Services.AddSingleton<ListDetail3ViewModel>();
-
-		builder.Services.AddSingleton<ListDetail3Page>();
-
-		builder.Services.AddTransient<SampleDataService>();
-		builder.Services.AddTransient<ListDetail4DetailViewModel>();
-		builder.Services.AddTransient<ListDetail4DetailPage>();
-
-		builder.Services.AddSingleton<ListDetail4ViewModel>();
-
-		builder.Services.AddSingleton<ListDetail4Page>();
+		builder.Services.AddSingleton<NotificationPage>();
 
 		builder.Services.AddTransient<SampleDataService>();
 		builder.Services.AddTransient<ListDetail5DetailViewModel>();

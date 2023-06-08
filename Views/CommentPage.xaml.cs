@@ -1,10 +1,10 @@
 ﻿namespace MAUI_Project_2023.Views;
 
-public partial class ListDetail3Page : ContentPage
+public partial class CommentPage : ContentPage
 {
-	ListDetail3ViewModel ViewModel;
+	CommentViewModel ViewModel;
 
-	public ListDetail3Page(ListDetail3ViewModel viewModel)
+	public CommentPage(CommentViewModel viewModel)
 	{
 		InitializeComponent();
 

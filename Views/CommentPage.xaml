@@ -3,17 +3,17 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:vm="clr-namespace:MAUI_Project_2023.ViewModels"
 			 xmlns:m="clr-namespace:MAUI_Project_2023.Models"
-			 x:Class="MAUI_Project_2023.Views.ListDetail1Page"
-			 x:DataType="vm:ListDetail1ViewModel">
+			 x:Class="MAUI_Project_2023.Views.CommentPage"
+			 x:DataType="vm:CommentViewModel">
 	<RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshingCommand}">
-		<CollectionView ItemsSource="{Binding Items}" RemainingItemsThreshold="10" RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}">
+		<CollectionView ItemsSource="{Binding Items}" >
 			<CollectionView.ItemTemplate>
-				<DataTemplate x:DataType="m:SampleItem">
+				<DataTemplate x:DataType="m:Comment">
 					<Frame Margin="4" Padding="12">
 						<Frame.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ListDetail1ViewModel}}, Path=GoToDetailsCommand}" CommandParameter="{Binding .}" />
+							<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CommentViewModel}}, Path=GoToDetailsCommand}" CommandParameter="{Binding .}" />
 						</Frame.GestureRecognizers>
-						<Label Text="{Binding Title}" FontSize="Large" TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Black}}" />
+						<Label Text="{Binding Libelle}" FontSize="Large" TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Black}}" />
 					</Frame>
 				</DataTemplate>
 			</CollectionView.ItemTemplate>

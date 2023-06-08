@@ -3,14 +3,15 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:vm="clr-namespace:MAUI_Project_2023.ViewModels"
 			 x:Class="MAUI_Project_2023.Views.SignUpPage"
-			 x:DataType="vm:SignUpViewModel">
+			 x:DataType="vm:SignUpViewModel"
+             Shell.NavBarIsVisible="False">
 
     <VerticalStackLayout
         Spacing="5"
         Padding="30,0"
         VerticalOptions="Start"
         >
-        <Rectangle HeightRequest="30" />
+        <Rectangle HeightRequest="70" />
 
         <Image Source="scientmeet.png" WidthRequest="80" />
 
@@ -26,13 +27,14 @@
                   />
         <Label
             Text="Email :"
-            FontSize="10"
+            FontSize="12"
+            TextColor="#4552CB"
             FontFamily="poppSemiBold"
             Margin="0,0,0,-10"
             ZIndex="1"
-            WidthRequest="39"
+            WidthRequest="43"
             TranslationY="7"
-            TranslationX="-100"
+            TranslationX="-118"
             BackgroundColor="White"
         />
 
@@ -53,14 +55,15 @@
         </Frame>
 
         <Label
-            Text="Username :"
-             FontSize="10"
+            Text="Nom d'utilisateur :"
+             FontSize="12"
+            TextColor="#4552CB"
             FontFamily="poppSemiBold"
             Margin="0,0,0,-10"
             ZIndex="1"
-            WidthRequest="68"
+            WidthRequest="117"
             TranslationY="7"
-            TranslationX="-92"
+            TranslationX="-83"
             BackgroundColor="White"
         />
 
@@ -80,14 +83,15 @@
                 HeightRequest="70"/>
         </Frame>
         <Label 
-            Text="Password : "
-             FontSize="10"
+            Text="Mot de passe : "
+            FontSize="12"
+            TextColor="#4552CB"
             FontFamily="poppSemiBold"
             Margin="0,0,0,-10"
             ZIndex="1"
-            WidthRequest="69"
+            WidthRequest="93"
             TranslationY="7"
-            TranslationX="-91"
+            TranslationX="-97"
             BackgroundColor="White"/>
         <Frame BackgroundColor="Transparent"
                HeightRequest="50"
@@ -108,14 +112,15 @@
         </Frame>
 
         <Label 
-            Text="Password confirmation: "
-             FontSize="10"
+            Text="Confirmation de mot de passe : "
+             FontSize="12"
+            TextColor="#4552CB"
             FontFamily="poppSemiBold"
             Margin="70,0,0,-10"
             ZIndex="1"
-            WidthRequest="142"
+            WidthRequest="192"
             TranslationY="7"
-            TranslationX="-91"
+            TranslationX="-81"
             BackgroundColor="White"/>
         <Frame BackgroundColor="Transparent"
                HeightRequest="50"
@@ -138,13 +143,14 @@
 
         <Label 
             Text="Vous êtes : "
-             FontSize="10"
+             FontSize="12"
+            TextColor="#4552CB"
             FontFamily="poppSemiBold"
             Margin="0,0,0,-10"
             ZIndex="1"
             WidthRequest="69"
             TranslationY="7"
-            TranslationX="-91"
+            TranslationX="-108"
             BackgroundColor="White"/>
         <Frame BackgroundColor="Transparent"
                HeightRequest="50"
@@ -195,7 +201,19 @@
             Grid.Row="1" />
         </Grid>
 
-
+        <AbsoluteLayout Margin="0,50,0,0">
+            <Grid x:Name="LoadingOverlay"
+              IsVisible="False"
+              AbsoluteLayout.LayoutFlags="All"
+              AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+              >
+                <ActivityIndicator 
+                    Color="#4552CB" 
+                    IsRunning="True" 
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+            </Grid>
+        </AbsoluteLayout>
 
     </VerticalStackLayout>
 

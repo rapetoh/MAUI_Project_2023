@@ -3,15 +3,15 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:vm="clr-namespace:MAUI_Project_2023.ViewModels"
 			 xmlns:m="clr-namespace:MAUI_Project_2023.Models"
-			 x:Class="MAUI_Project_2023.Views.ListDetail2Page"
-			 x:DataType="vm:ListDetail2ViewModel">
+			 x:Class="MAUI_Project_2023.Views.NotificationPage"
+			 x:DataType="vm:NotificationViewModel">
 	<RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshingCommand}">
 		<CollectionView ItemsSource="{Binding Items}" RemainingItemsThreshold="10" RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}">
 			<CollectionView.ItemTemplate>
 				<DataTemplate x:DataType="m:SampleItem">
 					<Frame Margin="4" Padding="12">
 						<Frame.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ListDetail2ViewModel}}, Path=GoToDetailsCommand}" CommandParameter="{Binding .}" />
+							<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:NotificationViewModel}}, Path=GoToDetailsCommand}" CommandParameter="{Binding .}" />
 						</Frame.GestureRecognizers>
 						<Label Text="{Binding Title}" FontSize="Large" TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Black}}" />
 					</Frame>
@@ -20,3 +20,4 @@
 		</CollectionView>
 	</RefreshView>
 </ContentPage>
+

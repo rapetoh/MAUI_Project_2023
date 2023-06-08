@@ -1,6 +1,6 @@
 ﻿namespace MAUI_Project_2023.ViewModels;
 
-public partial class ListDetail4ViewModel : BaseViewModel
+public partial class NotificationViewModel : BaseViewModel
 {
 	readonly SampleDataService dataService;
 
@@ -10,7 +10,7 @@ public partial class ListDetail4ViewModel : BaseViewModel
 	[ObservableProperty]
 	ObservableCollection<SampleItem> items;
 
-	public ListDetail4ViewModel(SampleDataService service)
+	public NotificationViewModel(SampleDataService service)
 	{
 		dataService = service;
 	}
@@ -49,7 +49,7 @@ public partial class ListDetail4ViewModel : BaseViewModel
 	[RelayCommand]
 	private async void GoToDetails(SampleItem item)
 	{
-		await Shell.Current.GoToAsync(nameof(ListDetail4DetailPage), true, new Dictionary<string, object>
+		await Shell.Current.GoToAsync(nameof(NotificationDetailPage), true, new Dictionary<string, object>
 		{
 			{ "Item", item }
 		});

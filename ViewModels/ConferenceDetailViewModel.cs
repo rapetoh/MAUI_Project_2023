@@ -1,8 +1,8 @@
 ﻿namespace MAUI_Project_2023.ViewModels;
 
 [QueryProperty(nameof(Item), "Item")]
-public partial class ListDetail3DetailViewModel : BaseViewModel
+public partial class ConferenceDetailViewModel : BaseViewModel
 {
 	[ObservableProperty]
-	SampleItem item;
+	Conference item;
 }

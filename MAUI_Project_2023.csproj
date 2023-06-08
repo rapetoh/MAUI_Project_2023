@@ -46,6 +46,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="ViewModels\ListDetail1DetailViewModel.cs" />
+	  <Compile Remove="ViewModels\ListDetail1ViewModel.cs" />
+	  <Compile Remove="ViewModels\ListDetail2DetailViewModel.cs" />
+	  <Compile Remove="ViewModels\ListDetail2ViewModel.cs" />
+	  <Compile Remove="ViewModels\ListDetail3DetailViewModel.cs" />
+	  <Compile Remove="ViewModels\ListDetail3ViewModel.cs" />
+	  <Compile Remove="ViewModels\ListDetail4DetailViewModel.cs" />
+	  <Compile Remove="ViewModels\ListDetail4ViewModel.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Maui" Version="5.1.0" />
 	  <PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="1.0.2" />
 	  <PackageReference Include="CommunityToolkit.MVVM" Version="8.2.0" />
@@ -55,12 +66,42 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\ArticleDetailPage.xaml.cs">
+	    <DependentUpon>ArticleDetailPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ArticlePage.xaml.cs">
+	    <DependentUpon>ArticlePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\CommentDetailPage.xaml.cs">
+	    <DependentUpon>CommentDetailPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\CommentPage.xaml.cs">
+	    <DependentUpon>CommentPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ConferenceDetailPage.xaml.cs">
+	    <DependentUpon>ConferenceDetailPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ConferencePage.xaml.cs">
+	    <DependentUpon>ConferencePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NotificationPage.xaml.cs">
+	    <DependentUpon>NotificationPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\NotificationDetailPage.xaml.cs">
+	    <DependentUpon>NotificationDetailPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\SignUpPage.xaml.cs">
 	    <DependentUpon>SignUpPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
 	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\Profile.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<PropertyGroup Label="MauiAppAccelerator">

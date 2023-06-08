@@ -1,10 +1,10 @@
 ﻿namespace MAUI_Project_2023.Views;
 
-public partial class ListDetail1Page : ContentPage
+public partial class ArticlePage : ContentPage
 {
-	ListDetail1ViewModel ViewModel;
+	ArticleViewModel ViewModel;
 
-	public ListDetail1Page(ListDetail1ViewModel viewModel)
+	public ArticlePage(ArticleViewModel viewModel)
 	{
 		InitializeComponent();
 

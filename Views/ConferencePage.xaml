@@ -5,19 +5,20 @@
 			 xmlns:m="clr-namespace:MAUI_Project_2023.Models"
 			 x:Class="MAUI_Project_2023.Views.ConferencePage"
 			 x:DataType="vm:ConferenceViewModel">
-	 <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshingCommand}">
+    <Grid>
+    <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshingCommand}">
         <CollectionView ItemsSource="{Binding Items}" >
-			<CollectionView.ItemTemplate>
-				<DataTemplate x:DataType="m:Conference">
-					<Frame 
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="m:Conference">
+                    <Frame 
                        Padding="15,20,15,0"
                        BorderColor="Transparent">
-						<Frame.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ConferenceViewModel}}, Path=GoToDetailsCommand}" CommandParameter="{Binding .}" />
-						</Frame.GestureRecognizers>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type vm:ConferenceViewModel}}, Path=GoToDetailsCommand}" CommandParameter="{Binding .}" />
+                        </Frame.GestureRecognizers>
 
                         <Grid>
-                            
+
                             <Grid.RowDefinitions>
                                 <RowDefinition />
                             </Grid.RowDefinitions>
@@ -70,7 +71,7 @@
                                     Grid.Row="1"
                                     FontSize="18" 
                                     FontAttributes="Bold" />
-                                    
+
                                     <Image
                                         Grid.Row="3"
                                         Grid.Column="0"
@@ -111,8 +112,21 @@
                             </Frame>
                         </Grid>
                     </Frame>
-				</DataTemplate>
-			</CollectionView.ItemTemplate>
-		</CollectionView>
-	</RefreshView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+        <Button x:Name="AddConferenceButton"
+                Text="+"
+                BackgroundColor="#FF4081"
+                CornerRadius="50"
+                WidthRequest="60"
+                HeightRequest="60"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="White"
+                Clicked="AddConferenceButton_Clicked"
+                AbsoluteLayout.LayoutBounds="1,1,60,60"
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+    </Grid>
 </ContentPage>

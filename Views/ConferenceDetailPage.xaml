@@ -4,12 +4,53 @@
 			 xmlns:vm="clr-namespace:MAUI_Project_2023.ViewModels"
 			 x:Class="MAUI_Project_2023.Views.ConferenceDetailPage"
 			 x:DataType="vm:ConferenceDetailViewModel">
-	<ScrollView>
-		<VerticalStackLayout Margin="12">
-			<Label Text="{Binding Item.Sigle}" FontSize="20" />
-            <Label Text="{Binding Item.Name}" FontSize="19" />
-            <Label Text="{Binding Item.Theme}" FontSize="16" />
 
-        </VerticalStackLayout>
-	</ScrollView>
+
+    <ScrollView>
+        <Grid 
+            Padding="20"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Conference Name -->
+            <Frame Grid.Row="0" BackgroundColor="#4552CB" CornerRadius="10">
+                <Label Text="{Binding Item.Name}" TextColor="White" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" Margin="10" />
+            </Frame>
+            <Rectangle Grid.Row="1" HeightRequest="20"/>
+
+
+            <!-- Conference Details -->
+            <Frame Grid.Row="2" BackgroundColor="White" CornerRadius="10" Padding="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <!-- Add more rows for other conference details -->
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Text="Sigle:" TextColor="#4552CB" FontSize="16" />
+                    <Label Grid.Row="1" Text="{Binding Item.Sigle}" FontSize="14" />
+
+                    <!-- Add more labels for other conference details -->
+                </Grid>
+            </Frame>
+
+            <!-- Buttons -->
+            <AbsoluteLayout Grid.Row="3">
+                <!-- Comments Button -->
+                <Button Text="Voir les commentaires" BackgroundColor="#4552CB" TextColor="White" CornerRadius="5"
+                    AbsoluteLayout.LayoutBounds="0.5, 0.8, 200, 40" AbsoluteLayout.LayoutFlags="PositionProportional" />
+
+                <!-- Participate Button -->
+                <Button Text="Participer à la conférence" BackgroundColor="#4552CB" TextColor="White" CornerRadius="5"
+                    AbsoluteLayout.LayoutBounds="0.5, 0.9, 200, 40" AbsoluteLayout.LayoutFlags="PositionProportional" />
+            </AbsoluteLayout>
+        </Grid>
+    </ScrollView>
 </ContentPage>

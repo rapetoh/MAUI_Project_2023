@@ -1,5 +1,4 @@
-﻿using static Java.Util.Jar.Attributes;
-
+﻿
 namespace MAUI_Project_2023;
 
 public partial class AppShell : Shell
@@ -25,6 +24,7 @@ public partial class AppShell : Shell
             // L'utilisateur est déjà connecté, naviguer directement vers la page suivante (par exemple, MainPage2)
 			welcm1.IsVisible = false;
         }
+		
     }
     public AppShell()
 	{

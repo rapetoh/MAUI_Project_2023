@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlTypes;
+using Newtonsoft.Json.Linq;
+using System.Security.Cryptography.X509Certificates;
+using MAUI_Project_2023.Models;
 
 namespace MAUI_Project_2023.Services
 {
@@ -10,9 +14,70 @@ namespace MAUI_Project_2023.Services
     {
         public async Task<IEnumerable<Conference>> GetItems()
         {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+
+                    string TodoItemsUrl = "https://6849-196-170-95-47.ngrok-free.app/api/conferences";
+                    HttpResponseMessage response = await client.GetAsync(TodoItemsUrl);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // La requête a réussi, procédez au traitement de la réponse
+                        string jsonContent = await response.Content.ReadAsStringAsync();
+
+                        JObject jsonObject = JObject.Parse(jsonContent);
+                        JArray jsonArray = (JArray)jsonObject["hydra:member"];
+                        bool flagg = false;
+
+                        foreach (JObject item in jsonArray)
+                        {
+                            string nam = (string)item["name"];
+                            int iddd = (int)item["id"];
+                            string acron = (string)item["acronym"];
+                            string thm = (string)item["theme"];
+                            DateTime sbDate = (DateTime)item["submissionStartDate"];
+                            DateTime sbDlines = (DateTime)item["submissionDeadlines"];
+                            DateTime rsltDate = (DateTime)item["resultDate"];
+                            DateTime inscStDate = (DateTime)item["inscriptionStartDate"];
+                            DateTime inscDlines = (DateTime)item["inscriptionDeadline"];
+                            DateTime stDate = (DateTime)item["startDate"];
+                            DateTime endDate = (DateTime)item["endDate"];
+
+
+                            listOfConference.Add(new Conference()
+                            {
+                                Id = iddd,
+                                Name = nam,
+                                Sigle = acron,
+                                Theme = thm,
+                                SubmissionStartDate = sbDate,
+                                SubmissionEndDate = sbDlines,
+                                ResultsDate = rsltDate,
+                                InscriptionStartDate = inscStDate,
+                                InscriptionEndDate = inscDlines,
+                                ConferenceStartDate = stDate,
+                                ConferenceEndDate = endDate
+                            });
+                        }
+                    }
+                    else
+                    {
+                        // La requête a échoué, traitez l'erreur en conséquence
+                    }
+
+                    // Vérifier si la requête a réussi
+
+                }
+                catch (Exception ex)
+                {
+                    // Gérer les exceptions liées à la requête
+                }
+            }
             await Task.Delay(1000); // Artifical delay to give the impression of work
             return listOfConference;
         }
+
         public List<Conference> listOfConference = new List<Conference>()
         {
             new Conference()

@@ -17,6 +17,10 @@ public partial class ConferencePage : ContentPage
 
 		await ViewModel.LoadDataAsync();
 	}
+    public async void AddConferenceButton_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AddConference());
+    }
     public async void BookAConference(object sender, EventArgs e)
     {
 

@@ -33,6 +33,7 @@ public partial class ConferencePage : ContentPage
         else if ((conf.InscriptionStartDate > DateTime.Now) && (conf.InscriptionEndDate < DateTime.Now))
         {
             await DisplayAlert("Information", "C'est bon, Vous pouvez vous inscrire", "J'ai compris");
+
         }
     }
 }
